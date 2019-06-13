@@ -122,8 +122,7 @@ var AppComponent = /** @class */ (function () {
         // this.pp = new TextDecoder().decode(this.payload)
         // console.log("after devoce",this.pp)
         this.data = {
-            // 'payload':this.identifier,
-            'encoded': this.payload
+            'payload': this.identifier,
         };
         console.log(this.data);
         this.RestService.apiCaller('post', '/saveSendSound', this.data).subscribe(function (data) {
