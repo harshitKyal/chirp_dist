@@ -122,7 +122,7 @@ var AppComponent = /** @class */ (function () {
         // this.pp = new TextDecoder().decode(this.payload)
         // console.log("after devoce",this.pp)
         this.data = {
-            'payload': this.identifier,
+            // 'payload':this.identifier,
             'encoded': this.payload
         };
         console.log(this.data);
@@ -252,8 +252,9 @@ var RestService = /** @class */ (function () {
     RestService.prototype.apiCaller = function (type, url, data) {
         // console.log("api aller")
         //  this.uri = this.api + url;
-        this.uri = 'http://localhost:8100' + url;
         //  this.uri = 'http://api.testautotech.xyz' + url;
+        // this.uri = 'http://localhost:8100' + url;
+        this.uri = 'http://api.testautotech.xyz' + url;
         if (type === 'get') {
             return this.get(this.uri);
         }
