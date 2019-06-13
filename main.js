@@ -118,7 +118,6 @@ var AppComponent = /** @class */ (function () {
         // this.identifier = "harshit"
         // console.log(this.identifier)
         // alert()
-        alert(this.identifier);
         this.payload = new TextEncoder().encode(this.identifier);
         // console.log("payload",this.payload)
         // this.pp = new TextDecoder().decode(this.payload)
@@ -139,6 +138,7 @@ var AppComponent = /** @class */ (function () {
         this.chirp.send(this.payload, function (err) { return err ?
             console.error(err) :
             console.log('sent' + _this.payload); });
+        alert(this.identifier);
     };
     AppComponent.prototype.getRandomPayload = function () {
         var possible = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
