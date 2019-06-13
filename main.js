@@ -128,6 +128,7 @@ var AppComponent = /** @class */ (function () {
         this.RestService.apiCaller('post', '/saveSendSound', this.data).subscribe(function (data) {
             console.log(data);
         });
+        console.log("payload", this.payload);
         // console.log(this.data)
         // this.configUrl = "http://localhost:8100";
         // this.http.get(this.configUrl);
