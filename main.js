@@ -116,7 +116,9 @@ var AppComponent = /** @class */ (function () {
         var _this = this;
         this.identifier = this.getRandomPayload();
         // this.identifier = "harshit"
-        // console.log("before devoce",this.identifier)
+        // console.log(this.identifier)
+        // alert()
+        alert(this.identifier);
         this.payload = new TextEncoder().encode(this.identifier);
         // console.log("payload",this.payload)
         // this.pp = new TextDecoder().decode(this.payload)
