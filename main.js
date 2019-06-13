@@ -137,8 +137,8 @@ var AppComponent = /** @class */ (function () {
         // console.log(this.payload)
         this.chirp.send(this.payload, function (err) { return err ?
             console.error(err) :
-            console.log('sent' + _this.payload); });
-        alert(this.identifier);
+            // console.log('sent' + this.payload)
+            alert(_this.identifier); });
     };
     AppComponent.prototype.getRandomPayload = function () {
         var possible = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
