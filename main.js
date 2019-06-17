@@ -63,7 +63,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */"
+module.exports = ".wrapper {\n    text-align: center;\n}\n\n.button {\n    /* position: absolute; */\n    /* top: 60%; */\n}\n\n.center {\n    margin: auto;\n}\n\n.logo-img {\n    height: 100px;\n    width: 200px;\n }\n\n.wrapper {\n    width: 100%;\n    height: 100%;\n  }\n\n.overlay {\n    position: absolute;\n    z-index: 1002;\n    background-color: rgba(255, 255, 255, 0.5);\n    width: 100%;\n    height: 100%;\n  }\n\n.spinner-wrapper {\n    display: flex;\n    justify-content: center;\n    justify-items: center;\n  }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxrQkFBa0I7QUFDdEI7O0FBRUE7SUFDSSx3QkFBd0I7SUFDeEIsY0FBYztBQUNsQjs7QUFDQTtJQUNJLFlBQVk7QUFDaEI7O0FBRUE7SUFDSSxhQUFhO0lBQ2IsWUFBWTtDQUNmOztBQUNEO0lBQ0ksV0FBVztJQUNYLFlBQVk7RUFDZDs7QUFFQTtJQUNFLGtCQUFrQjtJQUNsQixhQUFhO0lBQ2IsMENBQTBDO0lBQzFDLFdBQVc7SUFDWCxZQUFZO0VBQ2Q7O0FBRUE7SUFDRSxhQUFhO0lBQ2IsdUJBQXVCO0lBQ3ZCLHFCQUFxQjtFQUN2QiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLndyYXBwZXIge1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuLmJ1dHRvbiB7XG4gICAgLyogcG9zaXRpb246IGFic29sdXRlOyAqL1xuICAgIC8qIHRvcDogNjAlOyAqL1xufVxuLmNlbnRlciB7XG4gICAgbWFyZ2luOiBhdXRvO1xufVxuXG4ubG9nby1pbWcge1xuICAgIGhlaWdodDogMTAwcHg7XG4gICAgd2lkdGg6IDIwMHB4O1xuIH1cbi53cmFwcGVyIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gIH1cbiAgXG4gIC5vdmVybGF5IHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgei1pbmRleDogMTAwMjtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNSk7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiAxMDAlO1xuICB9XG4gIFxuICAuc3Bpbm5lci13cmFwcGVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIGp1c3RpZnktaXRlbXM6IGNlbnRlcjtcbiAgfSJdfQ== */"
 
 /***/ }),
 
@@ -74,7 +74,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button (click)=\"onSendChirp()\">\n  Send Chirp\n</button>\n"
+module.exports = "\n<div class=\"wrapper\">\n  \n  <br><br>\n  <img class=\"logo-img\" src=\"../assets/q.png\">\n  <br><br>\n  <div class=\"center\">\n    <button class=\"button btn btn-danger\" (click)=\"onSendSound()\">\n      Send Sound\n    </button>\n    <h3 *ngIf=\"sending\" style=\"color:white;\"><b>Payload Sending : {{soundString}}</b></h3>\n    <h3 *ngIf=\"sent\" style=\"color:white;\"><b>Payload Sent : {{soundString}}</b></h3>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -110,35 +110,32 @@ var AppComponent = /** @class */ (function () {
         this.title = 'chirp';
         this.chirp = new chirp_js_sdk__WEBPACK_IMPORTED_MODULE_2___default.a('D3eCaAE33f94Fc0fcCc3CCa22');
         this.identifier = 'hello';
+        this.sending = false;
+        this.sent = false;
+        this.soundString = '';
         this.chirp.setConfig('ultrasonic');
     }
-    AppComponent.prototype.onSendChirp = function () {
+    AppComponent.prototype.onSendSound = function () {
         var _this = this;
+        this.sent = false;
+        this.sending = true;
         this.identifier = this.getRandomPayload();
-        // this.identifier = "harshit"
-        // console.log(this.identifier)
-        // alert()
         this.payload = new TextEncoder().encode(this.identifier);
-        // console.log("payload",this.payload)
-        // this.pp = new TextDecoder().decode(this.payload)
-        // console.log("after devoce",this.pp)
         this.data = {
             'payload': this.identifier,
         };
-        console.log(this.data);
+        this.soundString = this.identifier;
         this.RestService.apiCaller('post', '/saveSendSound', this.data).subscribe(function (data) {
             console.log(data);
         });
-        console.log("payload", this.payload);
-        // console.log(this.data)
-        // this.configUrl = "http://localhost:8100";
-        // this.http.get(this.configUrl);
-        // console.log('sent ' + this.identifier)
-        // console.log(this.payload)
+        screenTop;
         this.chirp.send(this.payload, function (err) { return err ?
             console.error(err) :
-            // console.log('sent' + this.payload)
-            alert(_this.identifier); });
+            console.log(_this.identifier); });
+        setTimeout(function () {
+            _this.sent = true;
+            _this.sending = false;
+        }, 7000);
     };
     AppComponent.prototype.getRandomPayload = function () {
         var possible = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
@@ -252,16 +249,11 @@ var RestService = /** @class */ (function () {
         this.uri = '';
     }
     RestService.prototype.apiCaller = function (type, url, data) {
-        // console.log("api aller")
-        //  this.uri = this.api + url;
-        //  this.uri = 'http://api.testautotech.xyz' + url;
-        // this.uri = 'http://localhost:8100' + url;
         this.uri = 'http://api.testautotech.xyz' + url;
         if (type === 'get') {
             return this.get(this.uri);
         }
         else {
-            // console.log("in post")
             return this.post(this.uri, data);
         }
     };
@@ -269,7 +261,6 @@ var RestService = /** @class */ (function () {
         return this.http.get(url, { headers: this.getHeaders() });
     };
     RestService.prototype.post = function (url, data) {
-        // console.log(url)
         return this.http.post(url, data, { headers: this.getHeaders() });
     };
     RestService.prototype.getHeaders = function () {
