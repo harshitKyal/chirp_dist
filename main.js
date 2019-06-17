@@ -74,7 +74,7 @@ module.exports = ".wrapper {\n    text-align: center;\n}\n\n.button {\n    /* po
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"wrapper\">\n  \n  <br><br>\n  <img class=\"logo-img\" src=\"../assets/q.png\">\n  <br><br>\n  <div class=\"center\">\n    <button class=\"button btn btn-danger\" (click)=\"onSendSound()\">\n      Send Sound\n    </button>\n    <h3 *ngIf=\"sending\" style=\"color:white;\"><b>Payload Sending : {{soundString}}</b></h3>\n    <h3 *ngIf=\"sent\" style=\"color:white;\"><b>Payload Sent : {{soundString}}</b></h3>\n  </div>\n</div>"
+module.exports = "\n<div class=\"wrapper\">\n  \n  <br>\n  <img class=\"logo-img\" src=\"../assets/q.png\">\n  <br><br>\n  <div class=\"center\">\n    <button class=\"button btn btn-danger\" (click)=\"onSendSound()\">\n      Send Sound\n    </button>\n    <h3 *ngIf=\"sending\" style=\"color:black;\"><b>Payload Sending : {{soundString}}</b></h3>\n    <h3 *ngIf=\"sent\" style=\"color:black;\"><b>Payload Sent : {{soundString}}</b></h3>\n  </div>\n</div>"
 
 /***/ }),
 
