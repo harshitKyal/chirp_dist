@@ -125,13 +125,15 @@ var AppComponent = /** @class */ (function () {
             'payload': this.identifier,
         };
         this.soundString = this.identifier;
-        this.RestService.apiCaller('post', '/saveSendSound', this.data).subscribe(function (data) {
-            console.log(data);
-        });
+        //Api call
+        // this.RestService.apiCaller('post', '/saveSendSound', this.data).subscribe(data => {
+        //   console.log(data)
+        // })
         screenTop;
         this.chirp.send(this.payload, function (err) { return err ?
             console.error(err) :
             console.log(_this.identifier); });
+        // timeout function to change label from sending to sent.
         setTimeout(function () {
             _this.sent = true;
             _this.sending = false;
